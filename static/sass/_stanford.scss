@@ -11,7 +11,7 @@
  
 //Main Color Variables
 $main-color: #959595;
-$dark-color: #999999; //Link Color
+$dark-color: #9e9e9e; //Link Color
 $light-color: #f4e00c; //Selected Header BG Color, ie. calendar        ***Custom, not from palette***
 $bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom, not from palette***
  
@@ -78,7 +78,8 @@ $faded-hr-image-5: linear-gradient($main-bg-60 0%, $main-bg-60);
 $faded-hr-image-6: linear-gradient($main-bg-60 0%, $main-bg-60);
  
 $base-font-color: $black;
-$lighter-base-font-color: $black-80;
+//$lighter-base-font-color: $black-80;
+$lighter-base-font-color: #c6c6c6;
 $very-light-text: $gray-1;
  
 $link-color: $dark-color;
@@ -211,9 +212,28 @@ $video-thumb-url: '../themes/stanford/images/logo_eng.png';
   footer {
     .colophon {
       width: flex-grid(1,2) !important;
+
+      .nav-colophon {
+
+        li {
+          a {
+            color: tint($black, 50%);
+            font-size: 20px;
+          }
+        }
+      }
+      .copyright {
+        margin: 10px 0 8px 0 !important;
+      }
     }
     .powered-by {
       width: flex-grid(1,2) !important;
     }
   }
+}
+.content-wrapper {
+  min-height: 75% !important;
+}
+html, body {
+  height: 100%;
 }
