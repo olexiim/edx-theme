@@ -79,7 +79,8 @@ $faded-hr-image-6: linear-gradient($main-bg-60 0%, $main-bg-60);
  
 $base-font-color: $black;
 //$lighter-base-font-color: $black-80;
-$lighter-base-font-color: #c6c6c6;
+//$lighter-base-font-color: #c6c6c6;
+$lighter-base-font-color: #919191;
 $very-light-text: $gray-1;
  
 $link-color: $dark-color;
@@ -236,4 +237,28 @@ $video-thumb-url: '../themes/prometheus/images/logo_eng.png';
 }
 html, body {
   height: 100%;
+}
+.home {
+  > header {
+    .title {
+      width: flex-grid(8) !important;
+    }
+  }
+}
+
+.course-info {
+  .course-sidebar {
+    > section {
+      &.course-summary {
+        margin-bottom: 100px !important;
+      }
+      
+      &.social-widgets {
+        border-width: 0px;
+        box-shadow: none;
+        padding: 16px 20px 30px;
+        margin-bottom: 220px;
+      }
+    }
+  }
 }

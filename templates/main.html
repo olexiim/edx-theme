@@ -66,7 +66,7 @@
     google_analytics_file = 'theme-google-analytics.html'
     footer_file = 'theme-footer.html'
     header_extra_file = 'theme-head-extra.html'
-
+    social_widgets_file = 'theme-social-widgets.html'
     style_overrides_file = None
 
   else:
@@ -78,7 +78,7 @@
       footer_file = microsite.get_template_path('edx_footer.html')
     else:
       footer_file = microsite.get_template_path('footer.html')
-
+    social_widgets_file = None
     style_overrides_file = microsite.get_value('css_overrides_file')
 %>
 
