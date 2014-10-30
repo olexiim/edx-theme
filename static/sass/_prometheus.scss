@@ -262,3 +262,9 @@ html, body {
     }
   }
 }
+
+header.global.slim {
+  h2 {
+    text-shadow: none !important;
+  }
+}
