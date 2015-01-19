@@ -23,7 +23,7 @@
           <li class="nav-colophon-03">
           ## <!--<a id="press" href="${marketing_link('PRESS')}">-->
           <a id="press" href="http://prometheus.org.ua/prometheus-start/">
-              ${_("Press")}
+              ${"Преса"}
           </a>
           </li>
           <li class="nav-colophon-04">
@@ -52,7 +52,10 @@
 ##        </p>
 ##      </div>
 
-      <p class="copyright">${_("&copy; 2014 {platform_name}, some rights reserved").format(platform_name=settings.PLATFORM_NAME)}</p>
+      <p class="copyright">${_("&copy; {copyright_year} {platform_name}, some rights reserved").format(
+         platform_name=settings.PLATFORM_NAME,
+         copyright_year=settings.COPYRIGHT_YEAR)}
+      </p>
         <nav class="nav-legal">
           <ul>
             <li class="nav-legal-02">

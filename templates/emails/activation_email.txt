@@ -1,0 +1,30 @@
+<%namespace file="../main.html" import="stanford_theme_enabled" />
+<%! from django.utils.translation import ugettext as _ %>
+${_("Thank you for signing up for {platform_name}.").format(platform_name=settings.PLATFORM_NAME)}
+
+${_("To get started, please activate your account by clicking on the link below"
+      " (you may also copy and paste the link into your browser's address"
+      " bar).").format(platform_name=settings.PLATFORM_NAME)}
+
+% if is_secure:
+  https://${ site }/activate/${ key }
+% else:
+  http://${ site }/activate/${ key }
+% endif
+
+${"Активація підтверджує, що ви можете зареєструватись на курси на {platform_name} і мати доступ до навчальних матеріалів. Якщо вам потрібна допомога, будь ласка, зверніться до нас за адресою {info_address}.".format( platform_name=settings.PLATFORM_NAME, info_address=settings.CONTACT_EMAIL)}
+
+${_("We hope you enjoy learning with {platform_name}!").format(
+        platform_name=settings.PLATFORM_NAME
+)}
+
+${_("The {platform_name} Team").format(platform_name=settings.PLATFORM_NAME)}
+
+${_("This email was automatically sent by {site_name} because someone "
+      "attempted to create an {platform_name} account using this email address. If you "
+      "did not attempt to create this account and do not activate the account, "
+      "you will no longer receive emails from {platform_name}.").format(
+        platform_name=settings.PLATFORM_NAME,
+	site_name=settings.SITE_NAME
+)}
+
