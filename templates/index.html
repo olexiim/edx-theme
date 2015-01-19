@@ -22,9 +22,9 @@
     <div class="outer-wrapper">
       <div class="title">
         <hgroup>
-          % if homepage_overlay_html:
-            ${homepage_overlay_html}
-          % else:
+          ## % if homepage_overlay_html:
+          ##   ${homepage_overlay_html}
+          ## % else:
             ## % if self.stanford_theme_enabled():
             ##   <h1>${_("Free courses from <strong>{university_name}</strong>").format(university_name="Stanford")}</h1>
             ##   <h2>${_("For anyone, anywhere, anytime")}</h2>
@@ -36,7 +36,7 @@
               <h1>${"НАЙКРАЩА ОСВІТА ДЛЯ КОЖНОГО"}</h1>
               <h2>${"для будь-кого, будь-де, будь-коли"}</h2>
             ## % endif
-          % endif
+          ## % endif
         </hgroup>
 
       </div>
