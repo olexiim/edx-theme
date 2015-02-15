@@ -1,0 +1,81 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%! from courseware.courses import get_course_info_section %>
+
+<%inherit file="../main.html" />
+<%namespace name='static' file='../static_content.html'/>
+
+<%block name="pagetitle">${_("{course_number} Course Info").format(course_number=course.display_number_with_default)}</%block>
+
+<%block name="headextra">
+<%static:css group='style-course-vendor'/>
+<%static:css group='style-course'/>
+</%block>
+
+<%include file="/dashboard/_dashboard_prompt_midcourse_reverify.html" />
+
+% if show_enroll_banner:
+  <div class="wrapper-msg urgency-low" id="failed-verification-banner">
+    <div class="msg msg-reverify is-dismissable">
+      <div class="msg-content">
+        <h2 class="title">${_("You are not enrolled yet")}</h2>
+        <div class="copy">
+          <p class='enroll-message'>
+            ${_(u"You are not currently enrolled in this course. Sign up for it {link_start}here{link_end}!").format(
+            link_start=u"<a href={}>".format(url_to_enroll),
+            link_end=u"</a>"
+            )}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+% endif
+
+<%include file="/courseware/course_navigation.html" args="active_page='info'" />
+
+<%block name="js_extra">
+  <script type="text/javascript" src="${static.url('js/jquery.treeview.js')}"></script>
+  <script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+    $(".handouts").treeview({collapsed:true, unique:true/*, cookieId: "treeview-book-nav", persist: "cookie"*/});
+    });
+  </script>
+</%block>
+
+<%block name="bodyclass">${course.css_class or ''}</%block>
+<section class="container">
+  <div class="info-wrapper">
+    % if user.is_authenticated():
+    <section class="updates">
+      % if studio_url is not None and masquerade and masquerade.role == 'staff':
+        <div class="wrap-instructor-info studio-view">
+          <a class="instructor-info-action" href="${studio_url}">${_("View Updates in Studio")}</a>
+        </div>
+      % endif
+
+      <h1>${_("Course Updates &amp; News")}</h1>
+      ${get_course_info_section(request, course, 'updates')}
+    </section>
+    <section aria-label="${_('Handout Navigation')}" class="handouts">
+      <h1>${_(course.info_sidebar_name)}</h1>
+      ${get_course_info_section(request, course, 'handouts')}
+      % if course.id.to_deprecated_string() in ['KPI/101/2014_T2','Prometheus/101/2015_T1','Prometheus/102/2015_T1','Prometheus/103/2015_T1']:
+        ## show rss news feed from osvita.ua
+        <div style="margin-left:10px; margin-right:5px">
+        <!-- start feedwind code --><script type="text/javascript">document.write('\x3Cscript type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https://' : 'http://') + 'feed.mikle.com/js/rssmikle.js">\x3C/script>');</script><script type="text/javascript">(function() {var params = {rssmikle_url: "http://osvita.ua/rss/blocks/835/",rssmikle_frame_width: "250",rssmikle_frame_height: "400",frame_height_by_article: "",rssmikle_target: "_blank",rssmikle_font: "Arial, Helvetica, sans-serif",rssmikle_font_size: "12",rssmikle_border: "off",responsive: "off",rssmikle_css_url: "",text_align: "left",text_align2: "left",corner: "off",scrollbar: "on",autoscroll: "off",scrolldirection: "up",scrollstep: "3",mcspeed: "20",sort: "New",rssmikle_title: "on",rssmikle_title_sentence: "Новини від інформаційного партнеру курсу",rssmikle_title_link: "",rssmikle_title_bgcolor: "#CBCBCB",rssmikle_title_color: "#2E2E2E",rssmikle_title_bgimage: "",rssmikle_item_bgcolor: "#FFFFFF",rssmikle_item_bgimage: "",rssmikle_item_title_length: "55",rssmikle_item_title_color: "#919191",rssmikle_item_border_bottom: "on",rssmikle_item_description: "on",item_link: "off",rssmikle_item_description_length: "150",rssmikle_item_description_color: "#2e2e2e",rssmikle_item_date: "gl1",rssmikle_timezone: "Etc/GMT",datetime_format: "%b %e, %Y %l:%M:%S %p",item_description_style: "text",item_thumbnail: "full",article_num: "15",rssmikle_item_podcast: "off",keyword_inc: "",keyword_exc: ""};feedwind_show_widget_iframe(params);})();</script><div style="font-size:10px; text-align:center; width:250px;"><a href="http://feed.mikle.com/" target="_blank" style="color:#CCCCCC;">RSS Feed Widget</a><!--Please display the above link in your web page according to Terms of Service.--></div><!-- end feedwind code -->
+        </div>
+      % endif
+
+    </section>
+    % else:
+    <section class="updates">
+      <h1>${_("Course Updates &amp; News")}</h1>
+      ${get_course_info_section(request, course, 'guest_updates')}
+    </section>
+    <section aria-label="${_('Handout Navigation')}" class="handouts">
+      <h1>${_("Course Handouts")}</h1>
+      ${get_course_info_section(request, course, 'guest_handouts')}
+    </section>
+    % endif
+  </div>
+</section>
