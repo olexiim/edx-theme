@@ -4,7 +4,7 @@
 <%inherit file="../main.html" />
 <%block name="bodyclass">register verification-process step-confirmation</%block>
 
-<%block name="pagetitle">${_("Receipt (Order")} ${order.id})</%block>
+<%block name="pagetitle">${"Квитанція (Замовлення"} ${order.id})</%block>
 
 <%block name="content">
 % if notification is not UNDEFINED:
@@ -20,15 +20,14 @@
       <h2 class="title">
 
         <span class="wrapper-sts">
-          <span class="sts-label">${_("You are now registered for: ")}</span>
-          <span class="sts-course-org">${course_org}</span>
-          <span class="sts-course-number">${course_num}</span>
+          <span class="sts-label">${"Тепер ви зареєстровані на курс "}</span>
           <span class="sts-course-name">${course_name}</span>
+          <span class="sts-course-org">(${course_org})</span>
         </span>
 
         <span class="sts-track">
           <span class="sts-track-value">
-            <span class="context">${_("Registered as: ")}</span> ${_("ID Verified")}
+            <span class="context">${"Зареєстрований як: "}</span> ${"Верифікований"}
           </span>
         </span>
       </h2>
@@ -36,39 +35,39 @@
 
     <div class="wrapper-progress">
       <section class="progress">
-        <h3 class="sr title">${_("Your Progress")}</h3>
+        <h3 class="sr title">${"Ваш прогрес"}</h3>
 
         <ol class="progress-steps">
           <li class="progress-step is-current" id="progress-step0">
             <span class="wrapper-step-number"><span class="step-number">0</span></span>
-            <span class="step-name"><span class="sr">${_("Current Step: ")}</span>${_("Intro")}</span>
+            <span class="step-name">${"Вступ"}</span>
           </li>
 
           <li class="progress-step" id="progress-step1">
             <span class="wrapper-step-number"><span class="step-number">1</span></span>
-            <span class="step-name">${_("Take Photo")}</span>
+            <span class="step-name">${"Зробити фото"}</span>
           </li>
 
           <li class="progress-step" id="progress-step2">
             <span class="wrapper-step-number"><span class="step-number">2</span></span>
-            <span class="step-name">${_("Take ID Photo")}</span>
+            <span class="step-name">${"Зробити фото документу"}</span>
           </li>
 
           <li class="progress-step" id="progress-step3">
             <span class="wrapper-step-number"><span class="step-number">3</span></span>
-            <span class="step-name">${_("Review")}</span>
+            <span class="step-name">${"Огляд"}</span>
           </li>
 
           <li class="progress-step" id="progress-step4">
             <span class="wrapper-step-number"><span class="step-number">4</span></span>
-            <span class="step-name">${_("Make Payment")}</span>
+            <span class="step-name">${"Зробити оплату"}</span>
           </li>
 
           <li class="progress-step progress-step-icon" id="progress-step5">
             <span class="wrapper-step-number"><span class="step-number">
               <i class="icon fa fa-check-square-o"></i>
             </span></span>
-            <span class="step-name"><span class="sr">${_("Current Step: ")}</span>${_("Confirmation")}</span>
+            <span class="step-name"><span class="sr">${"Поточний крок: "}</span>${"Підтвердження"}</span>
           </li>
         </ol>
 
@@ -80,24 +79,24 @@
 
     <div class="wrapper-content-main">
       <article class="content-main">
-        <h3 class="title">${_("Congratulations! You are now verified on ")} ${_(settings.PLATFORM_NAME)}.</h3>
+        <h3 class="title">${"Вітаємо! Ви тепер верифіковані на "} ${_(settings.PLATFORM_NAME)}.</h3>
 
         <div class="instruction">
-          <p>${_("You are now registered as a verified student! Your registration details are below.")}</p>
+          <p>${"Ви тепер зареєстровані як верифікований студент! Нижче наводиться інформація щодо вашої реєстрації."}</p>
         </div>
 
         <ul class="list-info">
           <li class="info-item course-info">
-            <h4 class="title">${_("You are registered for:")}</h4>
+            <h4 class="title">${"Ви зареєстровані на"}</h4>
 
             <div class="wrapper-report">
               <table class="report report-course">
-                <caption class="sr">${_("A list of courses you have just registered for as a verified student")}</caption>
+                <caption class="sr">${"Список курсів, на які ви щойно зареєструвались як верифікований студент"}</caption>
                 <thead>
                   <tr>
-                    <th scope="col" >${_("Course")}</th>
-                    <th scope="col" >${_("Status")}</th>
-                    <th scope="col" ><span class="sr">${_("Options")}</span></th>
+                    <th scope="col" >${"Курс"}</th>
+                    <th scope="col" >${"Статус"}</th>
+                    <th scope="col" ><span class="sr">${"Опції"}</span></th>
                   </tr>
                 </thead>
 
@@ -106,11 +105,11 @@
                   <tr>
                     <td>${item.line_desc}</td>
                     <td>
-                       ${_("Starts: {start_date}").format(start_date=course_start_date_text)}
+                       ${u"Стартує: {start_date}".format(start_date=course_start_date_text)}
                     </td>
                     <td class="options">
                       %if course_has_started:
-                          <a class="action action-course" href="${course_root_url}">${_("Go to Course")}</a>
+                          <a class="action action-course" href="${course_root_url}">${"До курсу"}</a>
                       %else:
                       %endif
                     </td>
@@ -120,7 +119,7 @@
                 <tfoot>
                   <tr class="course-actions">
                     <td colspan="3">
-                      <a class="action action-dashboard" href="${dashboard_url}">${_("Go to your Dashboard")}</a>
+                      <a class="action action-dashboard" href="${dashboard_url}">${"Перейти до особистого кабінету"}</a>
                     </td>
                   </tr>
                 </tfoot>
@@ -129,30 +128,30 @@
           </li>
 
           <li class="info-item verification-info">
-            <h4 class="title">${_("Verified Status")}</h4>
+            <h4 class="title">${"Стан верифікації"}</h4>
 
             <div class="copy">
-              <p>${_("We have received your identification details to verify your identity. If there is a problem with any of the items, we will contact you to resubmit. You can now register for any of the verified certificate courses this semester without having to re-verify.")}</p>
+              <p>${"Ми отримали вашу персональну інформацію для верифікації вашої особистості. Якщо виникнуть якісь питання щодо наданих даних, ми зв’яжемось з вами щодо повторного надання. Тепер ви можете реєструватись на будь-який курс з верифікованим сертифікатом без повторної реверифікації."}</p>
 
-              <p>${_("The professor will ask you to periodically submit a new photo to verify your work during the course (usually at exam times).")}</p>
+              <p>${"Періодично під час проходження курсу ми будемо вас просити надсилати своє фото, для перевірки вашої роботи (зазвичай це буде відбуватись під час іспитів)."}</p>
             </div>
           </li>
 
           <li class="info-item payment-info">
-            <h4 class="title">${_("Payment Details")}</h4>
+            <h4 class="title">${"Деталі оплати"}</h4>
 
             <div class="copy">
-              <p>${_("Please print this page for your records; it serves as your receipt. You will also receive an email with the same information.")}</p>
+              <p>${"Будь ласка, роздрукуйте цю сторінку для особистих записів; вона слугує в якості квитанції. Також ви отримаєте електронного листа з такою самою інформацією."}</p>
             </div>
 
             <div class="wrapper-report">
               <table class="report report-receipt">
                 <thead>
                   <tr>
-                    <th scope="col" >${_("Order No.")}</th>
-                    <th scope="col" >${_("Description")}</th>
-                    <th scope="col" >${_("Date")}</th>
-                    <th scope="col" >${_("Description")}</th>
+                    <th scope="col" >${"Замовлення №"}</th>
+                    <th scope="col" >${"Опис"}</th>
+                    <th scope="col" >${"Дата"}</th>
+                    <th scope="col" >${"Опис"}</th>
                   </tr>
                 </thead>
 
@@ -177,7 +176,7 @@
 
                 <tfoot>
                   <tr>
-                    <th scope="row" class="total-label" colspan="1">${_("Total")}</th>
+                    <th scope="row" class="total-label" colspan="1">${"Разом"}</th>
                     <td claass="total-value" colspan="3">
                       <span class="value-amount">${"{0:0.2f}".format(order.total_cost)} </span>
                        <span class="value-currency">(${item.currency.upper()})</span>
@@ -197,11 +196,11 @@
               % endif
             </div>
 
-            <div class="copy">
-              <p>${_("Billed To")}:
-                <span class="name-first">${order.bill_to_first}</span> <span class="name-last">${order.bill_to_last}</span> (<span class="address-city">${order.bill_to_city}</span>, <span class="address-state">${order.bill_to_state}</span> <span class="address-postalcode">${order.bill_to_postalcode}</span> <span class="address-country">${order.bill_to_country.upper()}</span>)
-              </p>
-            </div>
+            ## <div class="copy">
+            ##   <p>${_("Billed To")}:
+            ##     <span class="name-first">${order.bill_to_first}</span> <span class="name-last">${order.bill_to_last}</span> (<span class="address-city">${order.bill_to_city}</span>, <span class="address-state">${order.bill_to_state}</span> <span class="address-postalcode">${order.bill_to_postalcode}</span> <span class="address-country">${order.bill_to_country.upper()}</span>)
+            ##   </p>
+            ## </div>
           </li>
 
           <%doc>
