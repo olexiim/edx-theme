@@ -6,7 +6,7 @@
     <h2 class="title">
         <span class="wrapper-sts">
             <% organization = '<span class="sts-course-org">' + course_org + '</span>' %>
-            <% course_name_html = '<span class="sts-course-number">' + course_num + '</span> <span class="sts-course-name">' + course_name + '</span>' %>
+            <% course_name_html = '<span class="sts-course-name">"' + course_name + '"</span>' %>
             % if upgrade:
                 <span class="sts-label">
                     ## ${_("You are upgrading your enrollment for {organization}'s {course_name}").format(
@@ -86,7 +86,7 @@
                         ##     span_start='<span class="context">',
                         ##     span_end='</span>'
                         ## )}
-                        $(u"{span_start}Записатись як:{span_end} Верифікований".format(
+                        ${u"{span_start}Записатись як:{span_end} Верифікований".format(
                             span_start='<span class="context">',
                             span_end='</span>'
                         )}
