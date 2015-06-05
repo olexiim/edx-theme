@@ -6,7 +6,6 @@
 <%namespace name='static' file='/static_content.html'/>
 
 <%block name="bodyclass">register verification-process is-verified</%block>
-<%block name="pagetitle">${_("Register for {} | Verification").format(course_name)}</%block>
 <%block name="pagetitle">${u"Зареєструйтесь на {} | Верифікація".format(course_name)}</%block>
 
 <%block name="js_extra">
@@ -83,7 +82,7 @@ $(document).ready(function() {
 
     <div class="wrapper-content-main">
       <article class="content-main">
-        <h3 class="title">${"Ви вже були верифіковані раніше")}</h3>
+        <h3 class="title">${"Ви вже були верифіковані раніше"}</h3>
 
         <div class="instruction">
           <p>${"Ми вже верифікували вашу особистість (за допомогою фотографії вас та вашого документу, які ви надалі раніше). Ви можете перейти до оплати та завершення реєстрації."}</p>

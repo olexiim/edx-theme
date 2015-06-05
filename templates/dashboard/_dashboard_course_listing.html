@@ -123,13 +123,13 @@ from student.helpers import (
       <hgroup>
         <p class="date-block">
         % if course.has_ended():
-        ${_("Course Completed - {end_date}").format(end_date=course.end_datetime_text("DATE_TIME"))}
+        ${"Курс завершено - {end_date}".format(end_date=course.end_datetime_text("DATE_TIME"))}
         % elif course.has_started():
-        ${_("Course Started - {start_date}").format(start_date=course.start_datetime_text("DATE_TIME"))}
+        ${u"Курс розпочався - {start_date}".format(start_date=course.start_datetime_text("DATE_TIME"))}
         % elif course.start_date_is_still_default: # Course start date TBD
-        ${_("Course has not yet started")}
+        ${"Курс ще не розпочався"}
         % else:   # hasn't started yet
-        ${_("Course Starts - {start_date}").format(start_date=course.start_datetime_text("DATE_TIME"))}
+        ${u"Курс починається - {start_date}".format(start_date=course.start_datetime_text("DATE_TIME"))}
         % endif
         </p>
         <h2 class="university">${get_course_about_section(course, 'university')}</h2>
@@ -196,7 +196,7 @@ from student.helpers import (
 
             <div class="wrapper-extended">
                 ## <p class="message-copy">${_("You can still sign up for an ID verified {cert_name_long} for this course. If you plan to complete the whole course, it is a great way to recognize your achievement. {link_start}Learn more about the verified {cert_name_long}{link_end}.").format(link_start='<a href="{}">'.format(marketing_link('WHAT_IS_VERIFIED_CERT')), link_end="</a>", cert_name_long=cert_name_long)}</p>
-                <p class="message-copy">${u"Ви можете замовити отримання верифікованого сертифікату для цього курсу. Якщо ви плануєте пройти увесь курс, це гарна можливість підтвердити ваші знання та здобутки. {link_start}Дізнайтесь більше про верифіковані сертифікати{link_end}.".format(link_start='<a href="{}">'.format(marketing_link('WHAT_IS_VERIFIED_CERT')), link_end="</a>")}</p>
+                <p class="message-copy">${u"Ви можете замовити отримання верифікованого сертифікату для цього курсу. Це гарна можливість підтвердити ваші здобутки в очах роботодавців, а також надати собі стимул для завершення курсу. {link_start}Дізнайтеся більше про верифіковані сертифікати{link_end}.".format(link_start='<a href="{}">'.format(marketing_link('WHAT_IS_VERIFIED_CERT')), link_end="</a>")}</p>
 
               <ul class="actions message-actions">
                 <li class="action-item">
