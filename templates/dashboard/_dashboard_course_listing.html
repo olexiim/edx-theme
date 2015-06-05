@@ -85,7 +85,8 @@ from student.helpers import (
             <span class="sts-enrollment" title="${_("You're enrolled as a verified student")}">
               <span class="label">${_("Enrolled as: ")}</span>
               <img class="deco-graphic" src="${static.url('images/verified-ribbon.png')}" alt="${_("ID Verified Ribbon/Badge")}" />
-              <div class="sts-enrollment-value">${_("Verified")}</div>
+              ## <div class="sts-enrollment-value">${_("Verified")}</div>
+              <div class="sts-enrollment-value">${"Верифікований"}</div>
             </span>
           % else:
             <span class="sts-enrollment" title="${_("You're enrolled as an honor code student")}">
@@ -194,7 +195,8 @@ from student.helpers import (
             </div>
 
             <div class="wrapper-extended">
-                <p class="message-copy">${_("You can still sign up for an ID verified {cert_name_long} for this course. If you plan to complete the whole course, it is a great way to recognize your achievement. {link_start}Learn more about the verified {cert_name_long}{link_end}.").format(link_start='<a href="{}">'.format(marketing_link('WHAT_IS_VERIFIED_CERT')), link_end="</a>", cert_name_long=cert_name_long)}</p>
+                ## <p class="message-copy">${_("You can still sign up for an ID verified {cert_name_long} for this course. If you plan to complete the whole course, it is a great way to recognize your achievement. {link_start}Learn more about the verified {cert_name_long}{link_end}.").format(link_start='<a href="{}">'.format(marketing_link('WHAT_IS_VERIFIED_CERT')), link_end="</a>", cert_name_long=cert_name_long)}</p>
+                <p class="message-copy">${u"Ви можете замовити отримання верифікованого сертифікату для цього курсу. Якщо ви плануєте пройти увесь курс, це гарна можливість підтвердити ваші знання та здобутки. {link_start}Дізнайтесь більше про верифіковані сертифікати{link_end}.".format(link_start='<a href="{}">'.format(marketing_link('WHAT_IS_VERIFIED_CERT')), link_end="</a>")}</p>
 
               <ul class="actions message-actions">
                 <li class="action-item">
