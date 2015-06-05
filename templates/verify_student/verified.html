@@ -7,6 +7,7 @@
 
 <%block name="bodyclass">register verification-process is-verified</%block>
 <%block name="pagetitle">${_("Register for {} | Verification").format(course_name)}</%block>
+<%block name="pagetitle">${u"Зареєструйтесь на {} | Верифікація".format(course_name)}</%block>
 
 <%block name="js_extra">
 <script type="text/javascript">
@@ -49,28 +50,28 @@ $(document).ready(function() {
 
     <div class="wrapper-progress">
       <section class="progress">
-        <h3 class="sr title">${_("Your Progress")}</h3>
+        <h3 class="sr title">${"Ваш прогрес"}</h3>
 
         <ol class="progress-steps">
           <li class="progress-step is-completed" id="progress-step1">
             <span class="wrapper-step-number"><span class="step-number">1</span></span>
-            <span class="step-name">${_("ID Verification")}</span>
+            <span class="step-name">${"Верифікація особистості"}</span>
           </li>
           <li class="progress-step is-current" id="progress-step2">
             <span class="wrapper-step-number"><span class="step-number">2</span></span>
-            <span class="step-name"><span class="sr">${_("Current Step: ")}</span>${_("Review")}</span>
+            <span class="step-name"><span class="sr">${"Поточний крок: "}</span>${"Огляд"}</span>
           </li>
 
           <li class="progress-step" id="progress-step3">
             <span class="wrapper-step-number"><span class="step-number">3</span></span>
-            <span class="step-name">${_("Make Payment")}</span>
+	    <span class="step-name">${"Зробити оплату"}</span>
           </li>
 
           <li class="progress-step progress-step-icon" id="progress-step4">
             <span class="wrapper-step-number"><span class="step-number">
               <i class="icon fa fa-check-square-o"></i>
             </span></span>
-            <span class="step-name">${_("Confirmation")}</span>
+	    <span class="step-name">${"Підтвердження"}</span>
           </li>
         </ol>
 
@@ -82,17 +83,17 @@ $(document).ready(function() {
 
     <div class="wrapper-content-main">
       <article class="content-main">
-        <h3 class="title">${_("You've Been Verified Previously")}</h3>
+        <h3 class="title">${"Ви вже були верифіковані раніше")}</h3>
 
         <div class="instruction">
-          <p>${_("We've already verified your identity (through the photos of you and your ID you provided earlier). You can proceed to make your secure payment and complete registration.")}</p>
+          <p>${"Ми вже верифікували вашу особистість (за допомогою фотографії вас та вашого документу, які ви надалі раніше). Ви можете перейти до оплати та завершення реєстрації."}</p>
         </div>
 
         <nav class="nav-wizard is-ready">
         %if "professional" in modes_dict:
-          <span class="help help-inline price-value">${_("Your Course Total is $ ")} <strong>${chosen_price}</strong></span>
+          <span class="help help-inline price-value">${"Вартість курсу "} <strong>${chosen_price}</strong></span>
         %else:
-          <span class="help help-inline price-value">${_("You have decided to pay $ ")} <strong>${chosen_price}</strong></span>
+          <span class="help help-inline price-value">${"Ви сплачуєте "} <strong>${chosen_price}</strong></span>
         %endif
 
           <ol class="wizard-steps">
@@ -100,7 +101,7 @@ $(document).ready(function() {
               <form id="pay_form" method="post" action="${purchase_endpoint}">
                 <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf_token }">
                 <input type="hidden" name="course_id" value="${course_id | h}" />
-                <button type="submit" class="action-primary" id="pay_button">Go to Secure Payment</button>
+                <button type="submit" class="action-primary" id="pay_button">Перейти до оплати</button>
               </form>
             </li>
           </ol>
